@@ -60,7 +60,7 @@ router
       if (!id || !title || !artist) {
         return res.sendStatus(423);
       }
-      const updatedTrack = await Track.findByIdAndUpdate(id, { title, artist });
+      const updatedTrack = await Track.findByIdAndUpdate(id, { title, artist }, {new:true});
 
       return res.status(200).json(updatedTrack);
     } catch (e) {
